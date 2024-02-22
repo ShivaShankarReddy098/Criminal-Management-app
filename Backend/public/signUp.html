@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./signUp.css" />
+    <title>SignUp</title>
+  </head>
+  <body>
+    <form class="form" action="/register" method="POST">
+      <p class="title">Register</p>
+      <p class="message">Signup now and get full access to our app.</p>
+      <div class="flex">
+        <label>
+          <input class="input" type="text" name="username" required="true"id='input1'/>
+          <span>Username</span>
+        </label>
+      </div>
+
+      <label>
+        <input class="input" type="email" name="email" required="true" />
+        <span>Email</span>
+      </label>
+
+      <label>
+        <input class="input" type="password" name="password" required="true" />
+        <span>Password</span>
+      </label>
+      <button class="submit" type="">Submit</button>
+      <p class="signin">Already have an acount ? <a href="login.html">Login</a></p>
+    </form>
+  </body>
+</html>

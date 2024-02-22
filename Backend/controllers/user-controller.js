@@ -13,11 +13,13 @@ userController.getAllUser = async (req, res) => {
 };
 userController.getUser = async (req, res) => {
   try {
-    const userData = await user.findById(req.params.id);
+    const userData = await user.findById(req.params.email);
     if (!userData) {
-      return res.status(400).send("No User Found!");
+      // return res.status(400).send("No User Found!");
+      res.set( "Access-Control-Allow-Origin","*");
+      return res.redirect('home.html');
     }
-    return res.status(200).json(userData);
+    // return res.status(200).json(userData);
   } catch (err) {
     console.log("🤬", err);
   }
