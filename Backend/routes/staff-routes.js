@@ -3,8 +3,8 @@ const {getAllStaff,getStaff,createStaff,updateStaff,deleteStaff}=require('../con
 const express = require("express");
 const router = express.Router();
 router.post("/registerStaff",createStaff);
-router.get('/getStaff/:id',getStaff);
-// router.get('/allUser',getAllUsers);///******** we can not use not get operations*********
+// router.get('/getStaff/:id',getStaff);
+router.get('/getAllStaff',getAllStaff);///******** we can not use not get operations*********
 router.patch( '/updateStaff/:id',updateStaff);
 router.delete( "/removeStaff/:id" ,deleteStaff);
 module.exports=router;

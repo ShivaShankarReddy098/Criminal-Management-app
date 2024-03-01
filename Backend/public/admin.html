@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AdminPage</title>
+    <link rel="stylesheet" href="admin.css" />
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    crossorigin="anonymous"
+  />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navbar">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Crime_App</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/home.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#services">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#aboutus">AboutUs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contactus">ContactUs</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link active" href="/admin.html" id="adminPage">Admin</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    <div class="container">
+      <ul class="containerMain">
+        <button class="lists" id="viewCase">View Cases </button>
+        <button class="lists">Add Cases</button>
+        <button class="lists" id="viewStaff">View Staff</button>
+        <button class="lists">Add Staff</button>
+      </ul>
+    </div>
+    <div class="containerDown">
+        <!-- <div class="viewCase"></div> -->
+        <!-- <div class="addCase"></div>
+        <div class="viewstaff"></div>
+        <div class="addstaff"></div> -->
+    </div>
+    <div class="containerDown1"></div>
+    </div>
+    <script>
+        const viewCase=document.querySelector("#viewCase");
+        const viewStaff=document.querySelector("#viewStaff");
+        const  containerDown=document.querySelector(".containerDown");
+        const containerDown1=document.querySelector(".containerDown1");
+        //fetching cases
+        async function getCases(){
+        const response = await fetch("/getAllCase", {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        });
+        if (response) {
+          // console.log(response);
+          let data = await response.json();
+          // console.log(data);
+          let arr = data.map((items) => {
+            // console.log(items);
+            return items;
+          });
+          for(let  i=0;i<arr.length;i++){
+          const createDiv=document.createElement( "div" ) ;
+          createDiv.className='caseMain';
+          // createDiv.style.display="flex";
+          const p1=document.createElement('p');
+          const p2=document.createElement('p');
+          const p3=document.createElement('p');
+          const p4=document.createElement('p');
+          const p5=document.createElement('p');
+          // const cancelBtn=document.createElement('button');
+          // cancelBtn.className=' cancelBtn';
+          // cancelBtn.innerHTML='Cancel Booking'
+          // const updateBtn=document.createElement('button');
+          // updateBtn.className='updateBtn';
+          // updateBtn.innerHTML= 'Update Details';
+          console.log(arr[i].caseNumber);
+          p1.innerHTML = `CaseNumber:${(arr[i]).caseNumber}`;
+          p2.innerHTML = `CrimeType: ${(arr[i]).crimeType}`;
+          p3.innerHTML = `DateReported:${(arr[i]).dateReported}`;
+          p4.innerHTML = `Location:${(arr[i]).location}`;
+          p5.innerHTML = `Progress:${(arr[i]).progress}`;
+          createDiv.appendChild(p1);
+          createDiv.appendChild(p2);
+          createDiv.appendChild(p3);
+          createDiv.appendChild(p4);
+          createDiv.appendChild(p5);
+          containerDown.appendChild(createDiv);
+
+          };
+          };
+          // console.log(
+          //   arr.map((Data) => {
+          //     console.log(data);
+          //     return Data;
+          //   })
+          // );
+
+        };
+        //fetching staff
+        async function getStaff(){
+        const response = await fetch("/getAllStaff", {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        });
+        if (response) {
+          // console.log(response);
+          let data = await response.json();
+          // console.log(data);
+          let arr = data.map((items) => {
+            // console.log(items);
+            return items;
+          });
+          for(let  i=0;i<arr.length;i++){
+          const createDiv=document.createElement( "div" ) ;
+          createDiv.className='caseMain';
+          // createDiv.style.display="flex";
+          const p1=document.createElement('p');
+          const p2=document.createElement('p');
+          const p3=document.createElement('p');
+          const p4=document.createElement('p');
+          const p5=document.createElement('p');
+          // const cancelBtn=document.createElement('button');
+          // cancelBtn.className=' cancelBtn';
+          // cancelBtn.innerHTML='Cancel Booking'
+          // const updateBtn=document.createElement('button');
+          // updateBtn.className='updateBtn';
+          // updateBtn.innerHTML= 'Update Details';
+          // console.log(arr[i].caseNumber);
+          p1.innerHTML = `FirstName:${(arr[i]).firstName}`;
+          p2.innerHTML = `LastName: ${(arr[i]).lastName}`;
+          p3.innerHTML = `StaffNumber:${(arr[i]).staffNumber}`;
+          p4.innerHTML = `Status:${(arr[i]).status}`;
+          // p5.innerHTML = `Progress:${(arr[i]).progress}`;
+          createDiv.appendChild(p1);
+          createDiv.appendChild(p2);
+          createDiv.appendChild(p3);
+          createDiv.appendChild(p4);
+          // createDiv.appendChild(p5);
+          containerDown1.appendChild(createDiv);
+
+          };
+          };
+        };
+
+    viewCase.addEventListener('click',()=>{
+           localStorage.setItem('GETCASE',true);
+          getCases();
+          // console.log("viewCases");
+        }
+        );
+        viewStaff.addEventListener('click',()=>{
+          getStaff();
+        })
+
+    </script>
+  </body>
+</html>

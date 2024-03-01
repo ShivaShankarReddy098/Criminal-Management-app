@@ -10,7 +10,7 @@ const staffSchema = new Schema({
   status: {
     type: String,
     required: true,
-    enum: ["admin", "cid", "nco"],
+    enum: ["admin", "cid", "doctor"],
   },
 });
 module.exports=mongoose.model("staff",staffSchema);

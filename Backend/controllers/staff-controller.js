@@ -5,8 +5,7 @@ staffController.getAllStaff = async (req, res) => {
   try {
     const data = await Staff.find();
     // Sending back the Staffs data
-    res.status(200).json(data);
-    data.save();
+    res.status(200).send(data);
   } catch (err) {
     console.log("🤬", err);
   }

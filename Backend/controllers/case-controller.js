@@ -3,9 +3,10 @@ const caseController = {};
 // const bcrypt=require('bcrypt');
 caseController.getAllCase = async (req, res) => {
   try {
+    console.log("getAllCases");
     const data = await Case.find();
     // Sending back the Cases data
-    res.status(200).json(data);
+    res.status(200).send(data);
   } catch (err) {
     console.log("🤬", err);
   }

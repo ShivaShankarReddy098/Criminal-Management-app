@@ -1,0 +1,36 @@
+body {
+  background-color: rgb(67, 64, 64);
+}
+.containerMain {
+  margin-top: 40px;
+  color: azure;
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  justify-content: space-around;
+  align-items: center;
+}
+.containerMain .lists {
+  padding: 5px;
+  border-radius: 10px;
+  border: 2px solid rgb(146, 137, 137);
+  background-color: rgb(86, 81, 81);
+  color: yellow;
+  cursor: pointer;
+}
+.containerDown {
+  color: white;
+  background-color: rgb(70, 69, 69);
+  border: 1.5px solid rgb(34, 33, 33);
+}
+.caseMain {
+  font-weight: 700;
+  font-family: " Arial, sans-serif";
+  margin: 30px;
+  border-radius: 20px;
+  padding: 20px;
+  width: 50%;
+  border: 2px solid rgb(107, 246, 15);
+  align-items: center;
+  justify-content: center;
+}
