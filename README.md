@@ -10,6 +10,7 @@ The Criminal Management App is a comprehensive system for managing criminal inci
 - [Technologies Used](#technologies-used)
 - [Contributing](#contributing)
 - [License](#license)
+- [Images](#images)
 
 ## Features
 
