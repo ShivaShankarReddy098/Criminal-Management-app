@@ -69,6 +69,9 @@
             <li class="nav-item">
               <a class="nav-link" href="/admin.html" id="adminPage">Admin</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="" id="logOut">LogOut</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -263,16 +266,25 @@
       crossorigin="anonymous"
     ></script>
     <script>
+      const logOut = document.querySelector("#logOut");
       const loginBtn = document.querySelector("#loginBtn");
       const signUpBtn = document.querySelector("#signUpBtn");
       const adminBtn = document.getElementById("adminPage");
+      logOut.addEventListener("click", () => {
+        localStorage.removeItem("login");
+        loginBtn.style.display = "";
+        signUpBtn.style.display = "";
+        logOut.style.display = "none";
+        adminBtn.style.display = "none";
+        // window.location.reload();
+      });
       if (localStorage.getItem("login")) {
         loginBtn.style.display = "none";
         signUpBtn.style.display = "none";
         adminBtn.style.display = "";
-        // localStorage.removeItem("login");
       } else {
         adminBtn.style.display = "none";
+        logOut.style.display = "none";
       }
     </script>
   </body>
