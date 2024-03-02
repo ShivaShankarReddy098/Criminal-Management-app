@@ -1,4 +1,4 @@
-const Staff=require('../models/staff');
+const Staff = require("../models/staff");
 const staffController = {};
 // const bcrypt=require('bcrypt');
 staffController.getAllStaff = async (req, res) => {
@@ -26,7 +26,7 @@ staffController.createStaff = async (req, res) => {
     const newStaff = new Staff(req.body);
     newStaff.save();
     console.log("Staff created");
-    res.status(201).json(newStaff);
+    res.redirect("/admin.html");
   } catch (err) {
     console.log("🤬", err);
   }

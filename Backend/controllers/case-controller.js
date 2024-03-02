@@ -27,7 +27,8 @@ caseController.createCase = async (req, res) => {
     const newCase = new Case(req.body);
     newCase.save();
     console.log("Case created");
-    res.status(201).json(newCase);
+    // res.status(201).send(newCase);
+    res.redirect("/admin.html");
   } catch (err) {
     console.log("🤬", err);
   }

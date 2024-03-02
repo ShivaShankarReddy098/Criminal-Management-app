@@ -30,16 +30,16 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/home.html">Home</a>
+                <a class="nav-link" aria-current="page" href="home.html#hero-section">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#services">Services</a>
+                <a class="nav-link" href="home.html#services">Services</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#aboutus">AboutUs</a>
+                <a class="nav-link" href="home.html#aboutus">AboutUs</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#contactus">ContactUs</a>
+                <a class="nav-link" href="home.html#contact">ContactUs</a>
               </li>
               <li class="nav-item active">
                 <a class="nav-link active" href="/admin.html" id="adminPage">Admin</a>
@@ -51,24 +51,34 @@
     <div class="container">
       <ul class="containerMain">
         <button class="lists" id="viewCase">View Cases </button>
-        <button class="lists">Add Cases</button>
+        <button class="lists" id="addCases">Add Cases</button>
         <button class="lists" id="viewStaff">View Staff</button>
-        <button class="lists">Add Staff</button>
+        <button class="lists"id= "addStaff">Add Staff</button>
       </ul>
     </div>
     <div class="containerDown">
-        <!-- <div class="viewCase"></div> -->
-        <!-- <div class="addCase"></div>
-        <div class="viewstaff"></div>
-        <div class="addstaff"></div> -->
+      <h2 class="h2-main1" style="text-align: center;">All Cases</h2>
     </div>
-    <div class="containerDown1"></div>
+    <div class="containerDown1">
+      <h2 class="h2-main2" style="text-align: center;color: rgb(248, 243, 243);">All Staff</h2>
+
+    </div>
     </div>
     <script>
+        const addCases=document.querySelector('#addCases');
+        const addStaff=document.querySelector( '#addStaff' );
+        const main1=document.querySelector('.h2-main1');
+        const main2=document.querySelector('.h2-main2');
         const viewCase=document.querySelector("#viewCase");
         const viewStaff=document.querySelector("#viewStaff");
         const  containerDown=document.querySelector(".containerDown");
         const containerDown1=document.querySelector(".containerDown1");
+        addCases.addEventListener('click',()=>{
+          window.location.href='/addCases.html';
+        });
+        addStaff.addEventListener("click",()=>{
+          window.location.href = "/addStaff.html";
+        });
         //fetching cases
         async function getCases(){
         const response = await fetch("/getAllCase", {
@@ -136,8 +146,8 @@
             return items;
           });
           for(let  i=0;i<arr.length;i++){
-          const createDiv=document.createElement( "div" ) ;
-          createDiv.className='caseMain';
+          const createDiv1=document.createElement( "div" ) ;
+          createDiv1.className='caseMain';
           // createDiv.style.display="flex";
           const p1=document.createElement('p');
           const p2=document.createElement('p');
@@ -156,25 +166,41 @@
           p3.innerHTML = `StaffNumber:${(arr[i]).staffNumber}`;
           p4.innerHTML = `Status:${(arr[i]).status}`;
           // p5.innerHTML = `Progress:${(arr[i]).progress}`;
-          createDiv.appendChild(p1);
-          createDiv.appendChild(p2);
-          createDiv.appendChild(p3);
-          createDiv.appendChild(p4);
+          createDiv1.appendChild(p1);
+          createDiv1.appendChild(p2);
+          createDiv1.appendChild(p3);
+          createDiv1.appendChild(p4);
           // createDiv.appendChild(p5);
-          containerDown1.appendChild(createDiv);
+          containerDown1.appendChild(createDiv1);
 
           };
           };
         };
+        main1.style.display='none';
+        main2.style.display='none';
 
     viewCase.addEventListener('click',()=>{
            localStorage.setItem('GETCASE',true);
+          main1.style.display='';
           getCases();
+          viewCase.disabled=true;
+          // viewCase.style.display="none";
+          // containerDown1.style.display='none';
           // console.log("viewCases");
         }
         );
         viewStaff.addEventListener('click',()=>{
+          // console.log("view-before");
+          // containerDown.style.display='none';
+          // main1.style.display='block';
+          main2.style.display='';
+          
+
           getStaff();
+          // console.log("view-after");
+          // viewStaff.style.display="none";
+          viewStaff.disabled=true;
+          
         })
 
     </script>

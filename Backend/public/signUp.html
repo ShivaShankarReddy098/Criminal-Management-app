@@ -12,7 +12,13 @@
       <p class="message">Signup now and get full access to our app.</p>
       <div class="flex">
         <label>
-          <input class="input" type="text" name="username" required="true"id='input1'/>
+          <input
+            class="input"
+            type="text"
+            name="username"
+            required="true"
+            id="input1"
+          />
           <span>Username</span>
         </label>
       </div>
@@ -26,8 +32,17 @@
         <input class="input" type="password" name="password" required="true" />
         <span>Password</span>
       </label>
-      <button class="submit" type="">Submit</button>
-      <p class="signin">Already have an acount ? <a href="login.html">Login</a></p>
+      <button class="submit" type="submit">Submit</button>
+      <p class="signin">
+        Already have an acount ? <a href="login.html">Login</a>
+      </p>
     </form>
+    <script>
+      const btn = document.querySelector(".submit");
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        window.location.href = "/login.html";
+      });
+    </script>
   </body>
 </html>

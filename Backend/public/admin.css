@@ -23,6 +23,12 @@ body {
   background-color: rgb(70, 69, 69);
   border: 1.5px solid rgb(34, 33, 33);
 }
+.containerDown1 {
+  padding-bottom: 10px;
+  color: aliceblue;
+  /* padding: 20px; */
+  background-color: rgb(82, 80, 80);
+}
 .caseMain {
   font-weight: 700;
   font-family: " Arial, sans-serif";
