@@ -145,10 +145,11 @@ button:hover {
   font-size: 18px;
   text-align: center;
   margin: 10px;
-  background-color: #979292;
+  color: #0e0d0d;
+  background-color: #bc8bf0;
   border-radius: 10px;
-  transition: all 1s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 .btn:hover {
-  background-color: #979292;
+  background-color: #585bf5;
 }

@@ -271,6 +271,7 @@
       const signUpBtn = document.querySelector("#signUpBtn");
       const adminBtn = document.getElementById("adminPage");
       logOut.addEventListener("click", () => {
+        alert("ARE YOU SURE TO LOGOUT !!");
         localStorage.removeItem("login");
         loginBtn.style.display = "";
         signUpBtn.style.display = "";
